@@ -12,11 +12,15 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('company_users', function (Blueprint $table) {
+        Schema::create('skus', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('company_id')->index();
-            $table->unsignedBigInteger('user_id')->index();
-            $table->string('role')->nullable();
+            $table->unsignedBigInteger('spu_id')->index();
+            $table->unsignedBigInteger('attribute_id')->index();
+            $table->unsignedBigInteger('attribute_value_id')->index();
+            $table->decimal('price')->index();
+            $table->string('note')->nullable();
+            $table->string('code')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('company_users');
+        Schema::dropIfExists('skus');
     }
 };

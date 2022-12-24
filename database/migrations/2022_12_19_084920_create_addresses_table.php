@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('contact_mobile')->nullable();
             $table->string('contact_email')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('company_id')->nullable();
             $table->boolean('is_default')->default(false);
             $table->timestamps();
         });

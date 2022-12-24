@@ -12,11 +12,11 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('company_users', function (Blueprint $table) {
+        Schema::create('spus', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('company_id')->index();
-            $table->unsignedBigInteger('user_id')->index();
-            $table->string('role')->nullable();
+            $table->string('name')->nullable();
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->json('config')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('company_users');
+        Schema::dropIfExists('spus');
     }
 };

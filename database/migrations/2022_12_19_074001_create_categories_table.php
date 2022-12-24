@@ -12,13 +12,10 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('user_products', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_spec_id')->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->integer('total')->default(1);
-            $table->integer('remain')->default(1);
-            $table->unsignedBigInteger('company_id')->nullable();
+            $table->string('slug')->unique();
+            $table->string('name')->comment('服务类型');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('user_products');
+        Schema::dropIfExists('categories');
     }
 };

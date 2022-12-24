@@ -12,14 +12,13 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('product_specs', function (Blueprint $table) {
+        Schema::create('attribute_values', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('group')->nullable();
-            $table->unsignedBigInteger('product_id');
-            $table->decimal('price');
-            $table->integer('count')->default(1);
-            $table->unsignedBigInteger('company_id')->nullable();
+            $table->string('value');
+            $table->integer('order')->nullable();
+            $table->unsignedBigInteger('spu_id')->index();
+            $table->unsignedBigInteger('attribute_id')->index();
+            $table->unsignedBigInteger('company_id')->index();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('product_specs');
+        Schema::dropIfExists('attribute_values');
     }
 };

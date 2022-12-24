@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Spu extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function user()
+    public function specs()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(Sku::class);
     }
 }

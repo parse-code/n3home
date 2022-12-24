@@ -14,12 +14,14 @@ return new class extends Migration {
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_spec_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_sku_id')->index()->nullable();
+            $table->unsignedBigInteger('sku_id')->index()->nullable();
+            $table->unsignedBigInteger('spu_id')->index()->nullable();
+            $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->dateTime('scheduled_at')->nullable();
             $table->string('note')->nullable();
             $table->string('status');
-            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('company_id')->index();
             $table->timestamps();
         });
     }
