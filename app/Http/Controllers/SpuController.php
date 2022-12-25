@@ -9,7 +9,7 @@ class SpuController extends Controller
     public function create()
     {
         $this->authorize('create', Spu::class);
-        return view('spu.create');
+        return view('admin.spu.create');
     }
 
     public function store()
@@ -26,7 +26,7 @@ class SpuController extends Controller
     {
         $this->authorize('update', $spu);
 
-        return view('spu.edit')->with(compact('spu'));
+        return view('admin.spu.edit')->with(compact('spu'));
     }
 
     public function update(Spu $spu)
@@ -38,5 +38,10 @@ class SpuController extends Controller
         ]);
 
         return redirect(route('home'));
+    }
+
+    public function destroy(Spu $spu)
+    {
+
     }
 }

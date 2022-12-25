@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Company;
 use App\Models\Spu;
 use Illuminate\Contracts\Support\Renderable;
@@ -34,5 +35,12 @@ class HomeController extends Controller
         $company  = Company::where('slug', $slug)->firstOrFail();
         $products = $company->products()->with('specs')->get();
         return view('company.index')->with(compact('company', 'products'));
+    }
+
+    public function schedule()
+    {
+        $company      = auth()->user()->company;
+        $appointments = Appointment::all();
+        return view('admin.appointment.index')->with(compact('company', 'appointments'));
     }
 }

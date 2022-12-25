@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         $company = Company::factory()->create([
             'slug' => 'freshair',
             'name' => 'Fresh air',

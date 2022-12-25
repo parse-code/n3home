@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use App\Models\Appointment;
 use App\Models\Spu;
+use App\Policies\AppointmentPolicy;
 use App\Policies\SpuPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -15,7 +17,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        Spu::class => SpuPolicy::class,
+        Spu::class         => SpuPolicy::class,
+        Appointment::class => AppointmentPolicy::class,
     ];
 
     /**

@@ -18,7 +18,9 @@
 </head>
 <body>
 <div id="app">
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
 </div>
 </body>
 @stack('scripts')

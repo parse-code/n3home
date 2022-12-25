@@ -19,7 +19,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -32,13 +32,13 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a href="/home" class="nav-link active">Home</a>
+                        <a href="{{route('home')}}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/schedule" class="nav-link">Schedule</a>
+                        <a href="{{route('schedule')}}" class="nav-link">Schedule</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/availability" class="nav-link">Availability</a>
+                        <a href="{{route('home')}}" class="nav-link">Availability</a>
                     </li>
                 </ul>
 
