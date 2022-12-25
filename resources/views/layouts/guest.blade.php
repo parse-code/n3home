@@ -17,11 +17,9 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app">
-        @yield('content')
-    </div>
+<div id="app">
+    @yield('content')
+</div>
 </body>
-<script src="//unpkg.com/vue"></script>
-<script src="//unpkg.com/axios"></script>
 @stack('scripts')
 </html>

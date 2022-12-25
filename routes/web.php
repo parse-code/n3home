@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\SpuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +23,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/{slug}', [App\Http\Controllers\HomeController::class, 'company'])->name('company');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('spu/create', [SpuController::class, 'create'])->name('spu.create');
+    Route::post('spu', [SpuController::class, 'store'])->name('spu.store');
+    Route::get('spu/{spu}/edit', [SpuController::class, 'edit'])->name('spu.edit');
+    Route::put('spu/{spu}', [SpuController::class, 'update'])->name('spu.update');
+});
+
+Route::get('/{slug}/{spu_id}', [AppointmentController::class, 'create'])->name('appointment.create');
+Route::post('/{slug}/{spu_id}', [AppointmentController::class, 'store'])->name('appointment.store');
