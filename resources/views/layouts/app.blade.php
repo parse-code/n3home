@@ -32,13 +32,13 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a href="{{route('home')}}" class="nav-link">Home</a>
+                        <a href="{{route('home')}}" class="nav-link">首页</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('schedule')}}" class="nav-link">Schedule</a>
+                        <a href="{{route('schedule')}}" class="nav-link">所有预约</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('home')}}" class="nav-link">Availability</a>
+                        <a href="{{route('home')}}" class="nav-link">设置</a>
                     </li>
                 </ul>
 
