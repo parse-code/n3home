@@ -2,45 +2,80 @@
 
 @section('content')
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <div class="float-end">
-                    <button class="btn-sm btn btn-success"><i class="bi bi-check"></i> 服务完成</button>
-                    <button class="btn-sm btn btn-secondary"><i class="bi bi-pencil"></i> 修改时间</button>
-                    <button class="btn-sm btn btn-secondary"><i class="bi bi-chat"></i> 沟通记录</button>
-                    <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                        <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">分配服务人员</a></li>
-                        <li><a class="dropdown-item" href="#">联系客户</a></li>
-                        <li><a class="dropdown-item" href="#">发送位置信息</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item text-danger" href="#">取消预约</a></li>
-                    </ul>
-                </div>
-                <div class="d-flex align-items-center">
-                    <span class="fs-3">张先生</span>
-                    <span class="badge bg-info fs-6 ms-1"><i class="bi bi-shop-window"></i> 空调清洗 - 4 台</span>
-                    <span class="badge bg-primary fs-6 ms-1"><i
-                            class="bi bi-calendar-check"></i> 12月30日 周五 上午</span>
-                </div>
+        <a-card>
+            <template #title>
+                张先生
+                <a-space>
+                    <a-tag color="blue">
+                        <template #icon><i class="bi bi-shop-window"></i></template>
+                        空调清洗 - 4 台
+                    </a-tag>
+                    <a-tag color="purple">
+                        <template #icon>
+                            <i class="bi bi-calendar-check"></i>
+                        </template>
+                        12月30日 周五 上午
+                    </a-tag>
+                </a-space>
+            </template>
+            <template #extra>
                 <div>
-                    <i class="bi bi-geo"></i> 5855 W Century Blvd, Los Angeles - 90045 (15km, 23 分钟)
-                    <i class="ms-3 bi bi-phone"></i> +65 8888 7777
+                    <a-space>
+                        <a-button type="primary" status="success">
+                            <template #icon>
+                                <i class="bi bi-check"></i>
+                            </template>
+                            服务完成
+                        </a-button>
+                        <a-button>
+                            <template #icon>
+                                <i class="bi bi-calendar"></i>
+                            </template>
+                            修改时间
+                        </a-button>
+                        <a-button type="dashed">
+                            <template #icon>
+                                <i class="bi bi-chat"></i>
+                            </template>
+                            沟通记录
+                        </a-button>
+                        <a-dropdown>
+                            <a-button>
+                                <template #icon>
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </template>
+                            </a-button>
+                            <template #content>
+                                <a-doption>编辑</a-doption>
+                                <a-divider/>
+                                <a-doption>删除</a-doption>
+                            </template>
+                        </a-dropdown>
+                    </a-space>
                 </div>
-                <div>
-
-                </div>
+            </template>
+            <div>
+                <i class="bi bi-geo"></i> 5855 W Century Blvd, Los Angeles - 90045 (15km, 23 分钟)
+                <i class="ms-3 bi bi-phone"></i> +65 8888 7777
             </div>
-            <div class="card-body ">
-                <div class="mb-2 text-muted">
-                    <span><i class="bi bi-sort-down"></i> 时间由近到远</span>
-                    <span class="ms-2"><i class="bi bi-funnel"></i> 只看客户</span>
-                </div>
+
+            <a-timeline labelPosition="relative">
+                <a-timeline-item label="2012-08">
+                    <div> 客户评价 </div>
+                    <div class="text-warning">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                    </div>
+                    <div>
+                        服务专业, 非常满意
+                    </div>
+                </a-timeline-item>
+            </a-timeline>
+
+            <div>
                 <div class="card mb-3">
                     <div class="card-header bg-transparent">
                         <small class="float-end text-muted">张先生</small>
@@ -59,7 +94,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card mb-3">
                     <div class="card-header bg-transparent">
                         <small class="float-end text-muted ">李峰</small>
@@ -82,7 +116,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card mb-3">
                     <div class="card-header bg-transparent">
                         <small class="float-end text-muted">李峰</small>
@@ -94,7 +127,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card mb-3">
                     <div class="card-header bg-transparent">
                         <small class="float-end text-muted">张先生</small>
@@ -106,7 +138,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card mb-3">
                     <div class="card-header bg-transparent">
                         <small class="float-end text-muted">张先生</small>
@@ -123,7 +154,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card mb-3">
                     <div class="card-header bg-transparent">
                         <small class="float-end text-muted">张先生</small>
@@ -142,6 +172,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </a-card>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        Vue.createApp({}).use(ArcoVue).mount('#app');
+    </script>
+@endpush
