@@ -16,7 +16,7 @@
                 </button>
             </div>
             <div class="float-end">
-                <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-plus"></i>  添加预约 </button>
+                <a target="_blank" href="{{route('create-appointment ')}}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-plus"></i>  添加预约 </a>
                 <button class="btn btn-sm btn-outline-secondary"><span><i class="bi bi-filter"></i></span></button>
             </div>
         </div>

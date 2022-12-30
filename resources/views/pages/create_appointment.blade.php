@@ -2,77 +2,122 @@
 
 @section('content')
     <div class="container">
-        <div class="card mt-2">
-            <div class="card-header">
-                添加预约
-            </div>
-            <div class="card-body">
-                <div class="mt-3">
-                    <div>
-                        <div class="row mb-3 g-2">
-                            <div class="col-sm">
-                                <label for="type" class="form-label">选择服务项目</label>
-                                <select name="type" id="type" class="form-control">
-                                    <option value="">-</option>
-                                    <option value="1">空调清洗</option>
-                                    <option value="2">空调清洗+充气</option>
-                                    <option value="3">空调维修</option>
-                                </select>
-                            </div>
-                            <div class="col-sm">
-                                <label for="quantity" class="form-label">数量</label>
-                                <input class="form-control" type="number" id="quantity" placeholder="数量">
-                            </div>
-                            <div class="col-sm">
-                                <label for="date" class="form-label">服务日期</label>
-                                <input class="form-control" type="date" id="date">
-                            </div>
-                            <div class="col-sm">
-                                <label for="time" class="form-label">服务时间</label>
-                                <select id="time" class="form-control">
-                                    <option value="">-</option>
-                                    <option value="1">上午</option>
-                                    <option value="2">下午</option>
-                                </select>
-                            </div>
+        <a-card class="card mt-2" title="添加预约">
+            <template #extra>
+                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#loginModal">已有账号?
+                    登录</a>
+            </template>
+            <div>
+                <div class="row mb-3 g-2">
+                    <div class="col-sm">
+                        <label for="type" class="form-label">选择服务项目</label>
+                        <div>
+                            <a-select :style="{width:'320px'}" placeholder="选择服务项目 ...">
+                                <a-option>空调清洗</a-option>
+                                <a-option>空调清洗+充气</a-option>
+                                <a-option>空调维修</a-option>
+                            </a-select>
                         </div>
-                        <hr class="dropdown-divider">
-                        <div class="mb-3 row g-2">
-                            <div class="col-sm">
-                                <label for="name" class="form-label">姓名</label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                            <div class="col-sm">
-                                <label for="phone" class="form-label">电话</label>
-                                <input type="tel" class="form-control" id="phone">
-                            </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="quantity" class="form-label">数量</label>
+                        <div>
+                            <a-input-number :min="1" :max="100" id="quantity"
+                                            placeholder="数量"></a-input-number>
                         </div>
-                        <div class="row mb-3 g-2">
-                            <div class="col-sm">
-                                <label for="address" class="form-label">地址</label>
-                                <input type="text" class="form-control" id="address">
-                            </div>
-                            <div class="col-sm">
-                                <label for="postcode" class="form-label">邮编</label>
-                                <input type="text" class="form-control" id="postcode">
-                            </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="date" class="form-label">服务日期</label>
+                        <div>
+                            <a-date-picker/>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="time" class="form-label">服务时间</label>
+                        <div>
+                            <a-select id="time" :style="{width:'320px'}" placeholder="选择服务时间 ...">
+                                <a-option>上午</a-option>
+                                <a-option>下午</a-option>
+                            </a-select>
+                        </div>
+                    </div>
+                </div>
+                <hr class="dropdown-divider">
+                <div class="mb-3 row g-2">
+                    <div class="col-sm">
+                        <label for="name" class="form-label">姓名</label>
+                        <div>
+                            <a-input type="text" id="name"></a-input>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="email" class="form-label">Email</label>
+                        <div>
+                            <a-input type="email" id="email"></a-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3 g-2">
+                    <div class="col-sm">
+                        <label for="address" class="form-label">服务地址</label>
+                        <div>
+                            <a-input type="text"  id="address"></a-input>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="postcode" class="form-label">邮编</label>
+                        <div>
+                            <a-input type="text" id="postcode"></a-input>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <label for="phone" class="form-label">电话</label>
+                        <div>
+                            <a-input type="tel" id="phone"></a-input>
+                        </div>
+                    </div>
 
-                            <div class="col-sm">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">备注</label>
+                    <div>
+                        <a-textarea id="address" placeholder="输入备注" :max-length="100" allow-clear auto-size
+                                    show-word-limit/>
+                    </div>
+                </div>
+                <a-button type="primary" data-bs-toggle="modal" data-bs-target="#exampleModal">提交预约</a-button>
+            </div>
+        </a-card>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">登录</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">备注</label>
-                            <textarea id="address" class="form-control"></textarea>
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
                         </div>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">提交预约
-                        </button>
-                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">登录</button>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -96,3 +141,9 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        Vue.createApp({}).use(ArcoVue).mount('#app');
+    </script>
+@endpush
