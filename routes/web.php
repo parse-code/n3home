@@ -27,11 +27,12 @@ Auth::routes();
 //Route::get('/appointment/{appointment}', [AppointmentController::class, 'show'])->name('appointment.show');
 Route::view('/create-appointment', 'pages.create_appointment')->name('create-appointment ');
 
+Route::view('/worker', 'pages.mobile.worker')->name('worker');
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::view('/', 'pages.admin.dashboard')->name('home');
     Route::view('/appointment', 'pages.admin.appointment')->name('appointment');
     Route::view('/schedule', 'pages.admin.schedule')->name('schedule');
-
 //    Route::get('/', [HomeController::class, 'index'])->name('home');
 //    Route::get('/schedule', [HomeController::class, 'schedule'])->name('schedule');
     Route::get('spu/create', [SpuController::class, 'create'])->name('spu.create');
