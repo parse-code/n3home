@@ -17,10 +17,11 @@ class DatabaseSeeder extends Seeder
     {
         $company = Company::factory()->create([
             'slug' => 'freshair',
-            'name' => 'Fresh air',
+            'name' => '嘉兴控股',
         ]);
 
         $user = User::factory()->create([
+            'name'       => '张雪雪',
             'email'      => 'demo@demo.com',
             'company_id' => $company->id,
         ]);

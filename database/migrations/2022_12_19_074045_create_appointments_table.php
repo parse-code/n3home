@@ -16,9 +16,11 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('spu_id')->index()->nullable();
             $table->unsignedBigInteger('user_id')->index()->nullable();
-            $table->dateTime('scheduled_at')->nullable();
+            $table->date('date')->nullable();
+            $table->integer('time')->nullable();
             $table->string('note')->nullable();
             $table->string('status')->nullable();
+            $table->json('payload')->nullable();
             $table->unsignedBigInteger('company_id')->index();
             $table->timestamps();
         });
