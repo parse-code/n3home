@@ -48,18 +48,23 @@
         <div>
             <van-list>
                 <template v-for="_time in [1,2]">
-                    <van-cell-group :title="_time ===1?'上午':'下午'">
-                        <van-cell center v-for="item in list.filter(_item => _item.time ===_time)">
+                    <van-cell-group :title="_time ===1?'上午':'下午'" >
+                        <van-cell center v-for="item in list.filter(_item => _item.time ===_time)" v-on:click="onNameClick(item.id)">
                             <template #title>
-                                <div v-on:click="onNameClick(item.id)">
+                                <div>
                                     <span class="custom-title">@{{ item.name }}</span>
-                                    <van-tag plain>@{{ item.service }}</van-tag>
+                                    <van-space>
+                                        <van-tag plain>@{{ item.service }}</van-tag>
+                                        <template v-if="item.status ==='finished'">
+                                            <van-tag type="success">已完成</van-tag>
+                                        </template>
+                                    </van-space>
                                 </div>
                             </template>
                             <template #right-icon>
-                                <van-icon v-on:click="callUser(item.mobile)"
+                                <van-icon v-on:click.stop="callUser(item.mobile)"
                                           name="phone-circle" :color="item.contacted?'#aaaaaa':'#1989fa'"
-                                          size="33"></van-icon>
+                                          size="40"></van-icon>
                             </template>
                             <template #label>
                                 <van-icon name="guide-o"></van-icon>
@@ -99,6 +104,7 @@
                             name: '张先生',
                             mobile: '+6588431266',
                             service: "空调清洗 - 4台",
+                            status: 'finished',
                             contacted: true,
                             location: {
                                 name: "38 ipoh ln, 438646",
